@@ -26,7 +26,7 @@ class ViewController: UIViewController {
 
         // 預設地板
         let myRoomView = UIView(frame: CGRect(x: 0, y: 0, width: roomWidth, height: roomLen))
-        myRoomView.viewWithTag(999)
+        //myRoomView.viewWithTag(999)
         myRoomView.backgroundColor = .red
         myRoomView.alpha = 0.2
         myRoomView.layer.borderWidth = 10
@@ -41,6 +41,7 @@ class ViewController: UIViewController {
         myRoomView.addGestureRecognizer(setLongPress())
     }
 
+    //MARK: - Gesture
     // 設定拖曳手勢
     func setPan() ->UIPanGestureRecognizer{
         let myPan = UIPanGestureRecognizer(target: self, action: #selector(whenPan))
@@ -66,7 +67,7 @@ class ViewController: UIViewController {
     // 設定長按手勢
     func setLongPress() -> UILongPressGestureRecognizer{
         let myLongPress = UILongPressGestureRecognizer(target: self, action: #selector(whenLongPress(sender:)))
-        myLongPress.minimumPressDuration = 1
+        myLongPress.minimumPressDuration = 0.8
         return myLongPress
     }
 
@@ -139,6 +140,7 @@ class ViewController: UIViewController {
         sender.view!.removeFromSuperview()
     }
 
+    //MARK: - Button Click
     // 清除所有物件按鈕按下
     @IBAction func cleanBtnClick(_ sender: UIBarButtonItem) {
         for x in myView.subviews{
